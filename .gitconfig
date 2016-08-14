@@ -1,0 +1,21 @@
+[user]
+	email = dwittman@gmail.com
+	name = David Wittman
+	signingkey = 9A3FDB4B
+[push]
+	default = simple
+[gitreview]
+	username = david-wittman
+[alias]
+    pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    s = status -s
+    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+    # find commits by source code
+    fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+    # find by commit message
+    fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+    # delete merged
+    dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    # list contributors w/ number of commits
+    contributors = shortlog --summary --numbered
