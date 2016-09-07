@@ -1,7 +1,7 @@
 [user]
 	email = dwittman@gmail.com
 	name = David Wittman
-	signingkey = 9A3FDB4B
+	signingkey = FF433B389A3FDB4B
 [push]
 	default = simple
 [gitreview]
