@@ -147,6 +147,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        tray_output primary
+        # for laptop
+        tray_output eDP1
 }
 
 # lock
@@ -160,3 +163,26 @@ exec --no-startup-id redshift-gtk
 
 # disable border for chrome
 for_window [class="google-chrome"] border none
+
+## Laptop configs
+
+# Enable hibernate with mod+shift+p
+bindsym $mod+Shift+p exec "sudo pm-hibernate"
+
+# Disable tapping and scrolling for 0.5 seconds after each keypress
+exec --no-startup-id syndaemon -i 0.5 -t -K -R
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+# Start NetworkManager for wifi
+exec --no-startup-id nm-applet
+# pulseaudio controls
+exec --no-startup-id pasystray
+exec --no-startup-id xfce4-power-manager
