@@ -41,8 +41,10 @@ syntax on
 filetype plugin indent on
 autocmd FileType yaml setl indentkeys-=<:>
 
-" Maps
+" JSON
+autocmd BufNewFile,BufRead *.json set ft=javascript
 
+" Maps
 :nmap \l :setlocal number!<CR>
 
 "" Buffers
