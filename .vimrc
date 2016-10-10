@@ -30,6 +30,9 @@ autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,
 " Ruby
 autocmd BufRead *.rb set tabstop=2 shiftwidth=2
 
+" Saltstack
+autocmd BufRead,BufNewFile *.sls set filetype=yaml
+
 " Go
 filetype off
 filetype plugin indent off
